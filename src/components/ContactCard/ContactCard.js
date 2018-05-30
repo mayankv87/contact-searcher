@@ -17,7 +17,6 @@ class ContactCard extends React.Component {
 
 
     componentDidMount() {
-        console.log(this.contactId);
         API.getContact(this.contactId)
             .then(res => {
                 this.setState({ contact: res.data });
@@ -27,12 +26,9 @@ class ContactCard extends React.Component {
 
     render() {
         return (
-
-
-            <div class="card text-center">
-
+            <div className="card text-center">
                 <div className="card-header">
-                    <Link to="/" class="previous round">&#8249;</Link>
+                    <Link to="/" className="previous round">&#8249;</Link>
                     <img alt="contact" className="contact-img" src={ContactImage}/>
                 </div>
                 <div className="card-body">
@@ -40,7 +36,6 @@ class ContactCard extends React.Component {
                     <p className="card-text"><img alt="phone" src={PhoneImage} /> {this.state.contact.phoneNumber}</p>
                 </div>
             </div>
-
         );
     }
 }

@@ -37,6 +37,7 @@
   
   .list-group .list-group-item {
     display: flex;
+    color: #000000;
   }
 
   .list-group-item img {
@@ -53,4 +54,12 @@
     font-size: 24px;
     margin-right: 18px;
     color: #fff;
+}
+
+.cnt-name {
+  margin-top: 4px;
+}
+
+.list-group-item:hover {
+    background-color: #efefef;
 }

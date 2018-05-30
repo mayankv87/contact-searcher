@@ -40,13 +40,15 @@
 ::placeholder {
   color: #cccccc;
   opacity: 1; /* Firefox */
-  font-size: 13px;
+  font-size: 14px;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
  color: #cccccc;;
+ font-size: 14px;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
- color: #cccccc;;
+ color: #cccccc;
+ font-size: 14px;
 }

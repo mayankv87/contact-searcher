@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid #d5d8df;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99999;
+}
+
+.no-contacts {
+  padding: 30px;
+}
+
+.search {
+  width: 100%;
+  padding: 20px 20px 20px 60px;
+  background-image: url(./search.svg);
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  background-size: 1.2em;
+  font-size: 1.2em;
+  border: 0;
+  outline: none;
+}
+
+.contact-list {
+  padding-top: 68px;
+}
+
+::placeholder {
+  color: #cccccc;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #cccccc;;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: #cccccc;;
+}

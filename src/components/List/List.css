@@ -20,7 +20,7 @@
   }
   
   .list-overflow-container li a {
-    color: #2A878C;
+    color: #000000;
   }
 
   .list-overflow-container li strong {
@@ -52,4 +52,5 @@
     display: inline-block;
     font-size: 24px;
     margin-right: 18px;
+    color: #fff;
 }

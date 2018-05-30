@@ -40,6 +40,7 @@
 ::placeholder {
   color: #cccccc;
   opacity: 1; /* Firefox */
+  font-size: 13px;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */

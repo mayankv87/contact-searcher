@@ -9,6 +9,6 @@ export default {
   },
   // Gets the Contact with the given id
   getContact: function(id) {
-    return axios.get(`${api}/contacts` + id);
+    return axios.get(`${api}/contacts/` + id);
   }
 };

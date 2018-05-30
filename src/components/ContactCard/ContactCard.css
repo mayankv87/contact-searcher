@@ -1,0 +1,25 @@
+
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  .social-links {
+    margin: 24px 0;
+  }
+
+  .card-header .previous {
+      float: left;
+      background-color: #0095ff;
+      border-radius: 50%;
+      color: #fff;
+      width: 31px;
+      height: 29px;
+      left: 11px;
+      position: absolute;
+  }
+
+  .contact-img {
+    max-width: 188px;
+  }

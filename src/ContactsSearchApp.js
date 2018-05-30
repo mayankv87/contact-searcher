@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import ContactList from './components/listContacts/listContacts';
 import API from "./utils/contactApi";
 import SearchContacts from "./components/SearchContacts/SearchContact";
-import './App.css';
+import ContactCard from "./components/ContactCard/ContactCard";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import './ContactSearchApp.css';
 
 
 class App extends Component {
@@ -29,7 +31,7 @@ class App extends Component {
   }
 
   handleChange = (searchTxt) => {
-    var displayedContacts = this.contacts.filter(function(el) {
+    var displayedContacts = this.contacts.filter(function (el) {
       var searchValue = el.name.toLowerCase();
       return searchValue.indexOf(searchTxt.toLowerCase()) !== -1;
     });
@@ -43,8 +45,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SearchContacts searchContact={this.handleChange}/>
-        <ContactList contacts={this.state.contacts} />
+        <Router>
+        <div>
+          <Route
+            exact path="/"
+            render={(routeProps) => (
+              <div>
+                <SearchContacts searchContact={this.handleChange}/>
+                <ContactList contacts={this.state.contacts}/>
+              </div>
+            )} />
+          <Route
+            path="/contacts/:id" component={ContactCard}/>
+            </div>
+        </Router>
+
+
+
+
       </div>
     );
   }

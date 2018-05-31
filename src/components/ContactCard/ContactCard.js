@@ -1,8 +1,8 @@
 import React from 'react';
 import API from "../../utils/contactApi";
 import "./ContactCard.css";
-import ContactImage from '../../contact.png';
-import PhoneImage from '../../phone.svg';
+import ContactImage from '../../images/contact.png';
+import PhoneImage from '../../images/phone.svg';
 import { Link } from 'react-router-dom';
 
 class ContactCard extends React.Component {

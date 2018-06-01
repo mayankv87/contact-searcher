@@ -12,6 +12,10 @@ In the project directory, you need to run:
 This command will install all the dependencies required to run the application.
 
 
+### `npm install -g json-server`
+
+This command will install the json server globally (required to run the rest end points)
+
 ### `npm start` or `yarn start`
 
 Runs the app in the development mode.<br>

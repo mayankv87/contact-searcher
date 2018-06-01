@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ContactList from './components/ListContacts/ListContacts';
+import ContactList from './components/ContactList/ContactList';
 import API from "./utils/contactApi";
 import SearchContacts from "./components/SearchContacts/SearchContact";
 import ContactCard from "./components/ContactCard/ContactCard";

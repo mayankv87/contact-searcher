@@ -20,6 +20,7 @@ class ContactList extends Component {
           return dotStyle;
     }
 
+    
     render() {
         return (
             <div className="contact-list">

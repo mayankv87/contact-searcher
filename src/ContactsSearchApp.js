@@ -14,7 +14,7 @@ class App extends Component {
     this.state = {
       contacts: []
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.filterContacts = this.filterContacts.bind(this);
   }
 
   componentDidMount() {
@@ -30,8 +30,8 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  handleChange = (searchTxt) => {
-    var displayedContacts = this.contacts.filter(function (el) {
+  filterContacts = (searchTxt) => {
+    var displayedContacts = this.contacts.filter ((el) => {
       var searchValue = el.name.toLowerCase();
       return searchValue.indexOf(searchTxt.toLowerCase()) !== -1;
     });
@@ -39,7 +39,6 @@ class App extends Component {
     this.setState({
       contacts: displayedContacts
     });
-
   }
 
   render() {
@@ -51,7 +50,7 @@ class App extends Component {
             exact path="/"
             render={(routeProps) => (
               <div>
-                <SearchContacts searchContact={this.handleChange}/>
+                <SearchContacts searchContact={this.filterContacts}/>
                 <ContactList contacts={this.state.contacts}/>
               </div>
             )} />
@@ -59,10 +58,6 @@ class App extends Component {
             path="/contacts/:id" component={ContactCard}/>
             </div>
         </Router>
-
-
-
-
       </div>
     );
   }

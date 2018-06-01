@@ -4,8 +4,24 @@ import ReactRouterEnzymeContext from 'react-router-enzyme-context';
 import { mount, shallow } from "enzyme";
 import API from "./utils/contactApi";
 
+jest.mock('./utils/contactApi');
+
+const contacts = [
+  {
+    "id": 1,
+    "name": "Toto",
+    "phoneNumber": "+250966436661"
+  },
+  {
+    "id": 2,
+    "name": "john",
+    "phoneNumber": "+250966436661"
+  }];
+API.getContacts = () => Promise.resolve({ data: contacts });
+
+
 describe('Contact Search App Component', () => {
-  xtest('it should render the  contact search app component', () => {
+  test('it should render the  contact search app component', () => {
     const options = new ReactRouterEnzymeContext();
     const wrapper = shallow(<ContactsSearchApp />, options.get());
 
@@ -13,12 +29,23 @@ describe('Contact Search App Component', () => {
     expect(contactList.exists()).toEqual(true);
   });
 
-  xtest('it should get all contacts on component did mount', () => {
+  test('it should get all contacts on component did mount', (done) => {
     const options = new ReactRouterEnzymeContext();
-    const spy = jest.spyOn(API, 'getContacts');
     const wrapper = shallow(<ContactsSearchApp />, options.get());
-
-    expect(spy).toHaveBeenCalled();
+    API.getContacts().then(() => {
+      expect(wrapper.state()).toHaveProperty('contacts', [
+        {
+          "id": 1,
+          "name": "Toto",
+          "phoneNumber": "+250966436661"
+        },
+        {
+          "id": 2,
+          "name": "john",
+          "phoneNumber": "+250966436661"
+        }]);
+        done();
+    });
   });
 
 });

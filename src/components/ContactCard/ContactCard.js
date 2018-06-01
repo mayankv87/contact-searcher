@@ -11,7 +11,9 @@ class ContactCard extends React.Component {
         super(props);
         this.contactId = Number(props.match.params.id);
         this.state = {
-            contact: {}
+            contact: {
+                name: ''
+            }
         }
     }
 

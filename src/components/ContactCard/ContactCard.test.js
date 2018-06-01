@@ -3,27 +3,20 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import { mount, shallow } from "enzyme";
 import ReactRouterEnzymeContext from 'react-router-enzyme-context';
+import API from '../../utils/contactApi';
+jest.mock('../../utils/contactApi');
 
-
-
-// jest.mock('API', () => {
-//     const Contact =
-//     {
-//         "id": 1,
-//         "name": "Toto",
-//         "phoneNumber": "+250966436661"
-//     };
-    
-//     return {
-//         getContacts: jest.fn(() => Promise.resolve(Contact)),
-//     };
-//   });
-
-import API from "../../utils/contactApi";
+const contact =
+        {
+            "id": 1,
+            "name": "Toto",
+            "phoneNumber": "+250966436661"
+        };
+API.getContact = () => Promise.resolve({ data: contact } );
 
 describe('Contact card Component', () => {
 
-    xtest('it should render the contact card component', () => {
+    test('it should render the contact card component', () => {
         const Contact =
         {
             "id": 1,
@@ -32,33 +25,24 @@ describe('Contact card Component', () => {
         };
         const paramObj = { match: { params: { id: 1 } } };
         const options = new ReactRouterEnzymeContext();
-        const wrapper = mount(<ContactCard contacts={Contact} {...paramObj} />, options.get());
+        const wrapper = shallow(<ContactCard contacts={Contact} {...paramObj} />, options.get());
 
         const contactCard = wrapper.find('.card');
         expect(contactCard.exists()).toEqual(true);
     });
 
-    xtest('fetching contact by id on component did mount', (done) => {
-        const contact =
-        {
+    test('fetching contact by id on component did mount', (done) => {
+        const options = new ReactRouterEnzymeContext();
+        const paramObj = { match: { params: { id: 1 } } };
+        const wrapper = shallow(<ContactCard contacts={contact} {...paramObj} />, options.get());
+        API.getContact().then((res) => {
+            expect(wrapper.state()).toHaveProperty('contact', {            
             "id": 1,
             "name": "Toto",
-            "phoneNumber": "+250966436661"
-        };
-        const paramObj = { match: { params: { id: 1 } } };
-        const options = new ReactRouterEnzymeContext();
-
-        const promise = Promise.resolve(contact);
-        //const spy = jest.spyOn(API, 'getContact').mockImplementation(() => promise);
-        API.getContact = jest.fn()
-        .mockReturnValueOnce(promise);
-        const app = mount(<ContactCard {...paramObj} contact={contact}/>, options.get());
-        app.setState({contact: contact});
-        console.log(app.state());
-        // API.getContact().then((res) => {
-        //     expect(app.state()).toHaveProperty('contact', contact);
-        
-        // })
+            "phoneNumber": "+250966436661"});
+            done();
+        })
+       
        
     });
 }); 

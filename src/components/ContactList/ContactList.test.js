@@ -1,4 +1,4 @@
-import ContactList from "./ListContacts";
+import ContactList from "./ContactList";
 import React from "react";
 import ReactDOM from 'react-dom';
 import { mount, shallow } from "enzyme";

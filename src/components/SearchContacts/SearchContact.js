@@ -1,16 +1,33 @@
 import React from "react";
+import { findDOMNode } from 'react-dom';
+import $ from 'jquery';
 
-const SearchContacts = (props) => {
+class SearchContacts extends React.Component {
 
-    const changeCallback = (e) => {
-        props.searchContact(e.target.value);
+    constructor(props) {
+        super(props);
     }
 
-    return (
-        <header className="App-header">
-            <input type="text" className="search" placeholder="Contacts Search" onChange={changeCallback} />
-        </header>
-    );
+    clearTxt = (e) => {
+        const searchBar = findDOMNode(this.refs.searchBar);
+        searchBar.value = '';
+        this.props.searchContact(searchBar.value);
+    }
+
+    changeCallback = (e) => {
+        this.props.searchContact(e.target.value);
+        this.searchValue = e.target.value;
+    }
+
+    render() {
+        return (
+           
+            <header className="App-header">
+                <input type="text" ref="searchBar" className="search" placeholder="Contacts Search" onChange={this.changeCallback} />
+                <span className={this.searchValue ? 'clearTxt' :  'd-none'} onClick={this.clearTxt}>X</span>
+            </header>
+        );
+    }
 }
 
 export default SearchContacts;

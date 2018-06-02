@@ -52,3 +52,11 @@
  color: #cccccc;
  font-size: 14px;
 }
+
+.clearTxt {
+  position: relative;
+  right: 20px;
+  top: 23px;
+  cursor: pointer;
+  color: #bbbbbb;
+}

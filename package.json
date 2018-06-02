@@ -13,7 +13,7 @@
     "jest-cli": "20.0.4"
   },
   "scripts": {
-    "start": "set PORT=3001 && react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "jquery": "^3.3.1",
     "react-router-enzyme-context": "^1.2.0"
   }
 }

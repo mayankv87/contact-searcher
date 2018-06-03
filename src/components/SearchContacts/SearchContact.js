@@ -12,6 +12,7 @@ class SearchContacts extends React.Component {
         const searchBar = findDOMNode(this.refs.searchBar);
         searchBar.value = '';
         this.props.searchContact(searchBar.value);
+        this.searchValue = '';
     }
 
     changeCallback = (e) => {
